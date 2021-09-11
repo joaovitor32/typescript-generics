@@ -1,10 +1,9 @@
-## Observer pattern in Javascript
+## Studying about typescript generics
 
-### Reference: https://refactoring.guru/design-patterns/observer
-
+### Reference: https://www.typescriptlang.org/docs/handbook/2/generics.html
 ```
-git clone https://github.com/joaovitor32/observer-pattern-js
-cd ./observer-pattern-js
+git clone https://github.com/joaovitor32/typescript-generics
+cd ./typescript-generics
 yarn 
 yarn start
 ```
