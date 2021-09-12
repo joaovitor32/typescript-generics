@@ -11,4 +11,5 @@ export interface Manager<T> {
   multiplePushs(objects: T[]): void;
   delete(id: string): void;
   find(id: string): Readonly<Omit<T, 'password'>>;
+  getUserProperty<T, K extends keyof T>(object: T, key: K): T[K];
 }

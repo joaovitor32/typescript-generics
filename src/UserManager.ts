@@ -17,13 +17,11 @@ class UserManager implements Manager<User> {
   }
 
   delete(id: string): void {
-    const elementExist = this.find(id);
+    const index = this.elements.findIndex(element => element.id === id);
 
-    if (!elementExist) {
+    if (index === -1) {
       throw new AppError('User does not exists');
     }
-
-    const index = this.elements.indexOf(elementExist);
 
     if (index > -1) {
       this.elements.splice(index, 1);
@@ -31,9 +29,17 @@ class UserManager implements Manager<User> {
   }
 
   find(id: string): Readonly<Omit<User, 'password'>> {
-    const response = this.elements.find(element => element.user.id === id);
+    const user = this.elements.find(element => element.id === id);
 
-    return { user: response.user };
+    return {
+      id: user.id,
+      name: user.name,
+      birthday: user.birthday,
+    };
+  }
+
+  getUserProperty<User, K extends keyof User>(object: User, key: K): User[K] {
+    return object[key];
   }
 }
 
