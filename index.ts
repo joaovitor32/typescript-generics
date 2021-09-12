@@ -26,4 +26,6 @@ const user3 = new User({
 
 userManager.multiplePushs([user1, user2, user3]);
 
+console.log(userManager.find('1'));
+
 console.log(userManager.getUserProperty(user1, 'name'));
